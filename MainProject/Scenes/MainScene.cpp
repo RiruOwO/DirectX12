@@ -39,7 +39,7 @@ void MainScene::CreateDeviceDependentResources()
 	auto&& device       = DXTK->Device;
 	auto&& commandQueue = DXTK->Command.Queue;
 
-	descriptor_heap_ = DirectXTK::CreateDescriptorHeap(device, 3);
+	descriptor_heap_ = DirectXTK::CreateDescriptorHeap(device, 4);
 
 	ResourceUploadBatch resourceUpload(device);
 	resourceUpload.Begin();
@@ -57,6 +57,11 @@ void MainScene::CreateDeviceDependentResources()
 	mrr_sprite_ = DirectXTK::CreateSpriteSRV(
 		device, L"hikamimrr.png", resourceUpload,
 		descriptor_heap_, 2
+	);
+	//アンアン
+	anan_sprite_ = DirectXTK::CreateSpriteSRV(
+		device, L"natsumeanan.png", resourceUpload,
+		descriptor_heap_, 3
 	);
 
 	auto&& swapChain = DXTK->SwapChain;
@@ -147,6 +152,9 @@ void MainScene::Render()
 
 	sprite_batch_->Draw(
 		mrr_sprite_.handle, mrr_sprite_.size, Vector2(0.0f, 100.0f));
+
+	sprite_batch_->Draw(
+		anan_sprite_.handle, anan_sprite_.size, Vector2(600.0f, 100.0f));
 
 	sprite_batch_->End();
 
