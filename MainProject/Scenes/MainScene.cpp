@@ -80,8 +80,8 @@ void MainScene::CreateResources()
 // Initialize a variable and audio resources.
 void MainScene::Initialize()
 {
-	player_x_ = (DXTK->SwapChain.Width - ema_sprite_.size.x) / 1.0f;
-	player_y_ = (DXTK->SwapChain.Height - ema_sprite_.size.y) / 1.0f;
+	/*player_x_ = (DXTK->SwapChain.Width - ema_sprite_.size.x) / 1.0f;
+	player_y_ = (DXTK->SwapChain.Height - ema_sprite_.size.y) / 1.0f;*/
 }
 
 // Releasing resources required for termination.
@@ -143,7 +143,7 @@ void MainScene::Render()
 		bg_sprite_.handle, bg_sprite_.size, Vector2(0.0f, 0.0f));
 
 	sprite_batch_->Draw(
-		ema_sprite_.handle, ema_sprite_.size, Vector2(player_x_, 100.0));
+		ema_sprite_.handle, ema_sprite_.size, Vector2(0.0f, 100.0f));	/*(player_x_, 100.0)*/
 
 	sprite_batch_->Draw(
 		mrr_sprite_.handle, mrr_sprite_.size, Vector2(0.0f, 100.0f));
